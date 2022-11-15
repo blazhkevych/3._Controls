@@ -119,5 +119,15 @@
         // Массив значений игрового поля.
         private readonly int[] arr;
 
+        // Метод заполнения массива случайными числами.
+        private void FillArrRandomInt()
+        {
+            Random r = new Random();
+            foreach (var i in arr)
+            {
+                arr[i] = r.Next(0, 101);
+            }
+        }
+
     }
 }
