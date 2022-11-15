@@ -67,21 +67,14 @@ namespace task
             gameField_button15.Enabled = true;
             gameField_button16.Enabled = true;
 
-            // Заполняем игровое поле случайными числами от 0 до 100.
+            // Заполняет кнопки на игровом поле случайными числами от 0 до 100 и выставляет их в текст.
             _game.SetAllButtonsTextFromArr(Controls);
-
-            // todo:вставить метод заполнения и выведения на поле из Game
-            //Random random = new Random();
-            //foreach (Control control in Controls)
-            //    if (control is Button && (control as Button).Text != "Новая игра")
-            //        (control as Button).Text = random.Next(0, 101).ToString();
 
             // Секунд осталось до конца игры.
             _game.TimeLeft = Convert.ToInt32(GameTime_numericUpDown1.Value);
 
             // Запускаем таймер на обратный отсчет. 
             timer1.Start();
-
         }
 
         // Вывод в хедер остатка секунд на игру.
@@ -94,11 +87,11 @@ namespace task
         // Нажатие на кнопку игрового поля.
         private void GameField_buttons_Click(object sender, EventArgs e)
         {
-            // Выбранное игроком число отправляем в класс Game.
+            // Выбранное игроком число(кнопку с ним) отправляем в класс Game.
             _game.SelectedNumberIs = Convert.ToInt32(((Button)sender).Text);
 
             // todo:Проверяем, является ли выбранное число следующим по возрастанию.
-            if (_game.IsMinNumber())
+            if (_game.IsMinNumber(Controls))
             {
                 // Если да, то добавляем его в список.
                 listBox1.Items.Add(_game.SelectedNumberIs);
@@ -184,10 +177,9 @@ namespace task
         }
 
         // Возвращает true, если выбрано минимальное число.
-        public bool IsMinNumber()
+        public bool IsMinNumber(Control.ControlCollection control)
         {
-            Array.
-            return _arr.Min();
+            int min = _arr.Min();
         }
 
 
