@@ -146,7 +146,19 @@ namespace task
         }
 
         // Принимает Controll из формы, и каждой кнопке назначает сооветствующее число из массива.
+        public void SetAllButtonsTextFromArr(Control.ControlCollection control)
+        {
+            int i = 1;
+            foreach (var obj in control)
+            {
+                if ( ((Button)obj).Text == "" )
+                {
+                    
+                }   
+            }
+        }
         
+
 
         // Метод заполнения массива случайными уникальными числами и сортирует массив.
         private void FillArrRandomNumbers()
