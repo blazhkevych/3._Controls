@@ -1,4 +1,6 @@
-﻿namespace task
+﻿using System.Linq;
+
+namespace task
 {
     public partial class Form1 : Form
     {
@@ -123,9 +125,29 @@
         private void FillArrRandomInt()
         {
             Random r = new Random();
+            bool isEauals = false;
+
+            for (int i = 0; i < 10; i++)
+            {
+                string str = r.Next(0, 101).ToString();
+                if (_arr.Contains(str)
+
+            }
+
+
+
+            _arr.Contains()
             foreach (var i in _arr)
             {
-                _arr. = r.Next(0, 101).ToString();
+                foreach (var j in _arr)
+                {
+                    if (!i.Equals(j))
+                    {
+                        _arr.Add(r.Next(0, 101).ToString());
+
+                    }
+                }
+
             }
         }
 
@@ -137,7 +159,7 @@
             {
                 if (expr)
                 {
-                    
+
                 }
             }
         }
