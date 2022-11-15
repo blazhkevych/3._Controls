@@ -42,7 +42,6 @@
             listBox1.Enabled = false;
 
             _game = new Game();
-
         }
 
         // Обработчик кнопки "Новая игра".
