@@ -214,6 +214,7 @@
             this.progressBar1.Location = new System.Drawing.Point(12, 421);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(403, 28);
+            this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 17;
             // 
             // groupBox1

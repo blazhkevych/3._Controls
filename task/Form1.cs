@@ -38,6 +38,7 @@ namespace task
 
         }
 
+        // Обработчик кнопки "Новая игра".
         private void NewGame_button17_Click(object sender, EventArgs e)
         {
             // Включаем игровое поле.
@@ -67,12 +68,13 @@ namespace task
             // Запускаем таймер на обратный отсчет. 
             timer1.Start();
 
-
         }
 
         private void CountdownStart_timer1_Tick(object sender, EventArgs e)
         {
             this.Text = GameTime_numericUpDown1.Value.ToString();
+            // таймер на форму.
+            Text = ;
         }
     }
 }
