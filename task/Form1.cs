@@ -79,7 +79,7 @@
 
         }
 
-        // Вывод 
+        // Вывод в хедер остатка секунд на игру.
         private void CountdownStart_timer1_Tick(object sender, EventArgs e)
         {
             Text = _game.TimeLeft + " секунд осталось ! ";
@@ -128,6 +128,7 @@
                 arr[i] = r.Next(0, 101);
             }
         }
+
 
     }
 }
