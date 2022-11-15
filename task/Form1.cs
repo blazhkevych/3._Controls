@@ -89,8 +89,10 @@
         // Нажатие на кнопку игрового поля.
         private void button1_Click(object sender, EventArgs e)
         {
+            // При нажатии на кнопку число должно добавляться в список только в том случае, 
+            // если это число является следующим по возрастанию.
             listBox1.Items.Add(((Button)sender).Text);
-            ((Button)sender).
+            ((Button)sender).Enabled = false;
         }
     }
 
