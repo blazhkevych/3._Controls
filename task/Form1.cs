@@ -85,6 +85,12 @@
             Text = _game.TimeLeft + " секунд осталось ! ";
             _game.TimeLeft -= 1;
         }
+
+        // Нажатие на кнопку игрового поля.
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     // Класс реализующий логику программы.
