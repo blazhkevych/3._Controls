@@ -105,8 +105,8 @@
                 }
             }
 
-            listBox1.Items.Add(((Button)sender).Text);
-            ((Button)sender).Enabled = false;
+            //listBox1.Items.Add(((Button)sender).Text);
+            //((Button)sender).Enabled = false;
         }
     }
 
@@ -117,15 +117,28 @@
         public int TimeLeft { get; set; }
 
         // Массив значений игрового поля.
-        private readonly int[] arr;
+        private readonly List<string> _arr;
 
         // Метод заполнения массива случайными числами.
         private void FillArrRandomInt()
         {
             Random r = new Random();
-            foreach (var i in arr)
+            foreach (var i in _arr)
             {
-                arr[i] = r.Next(0, 101);
+                _arr. = r.Next(0, 101).ToString();
+            }
+        }
+
+        // Метод возвращает tru, если это число является следующим по возрастанию и его можно добавлять в массив.
+        public bool CanAdd(string)
+        {
+            bool check = false;
+            foreach (var i in _arr)
+            {
+                if (expr)
+                {
+                    
+                }
             }
         }
 
