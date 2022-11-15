@@ -154,8 +154,9 @@ namespace task
             do
             {
                 foreach (var obj in control)
-                    if (((Button)obj).Name == "button" + i)
-                        ((Button)obj).Text = _arr[i].ToString();
+                    if (obj is Button)
+                        if (((Button)obj).Name =="button" + i)
+                            ((Button)obj).Text = _arr[i].ToString();
                 i--;
             } while (i>0);
         }
