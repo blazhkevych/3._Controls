@@ -117,8 +117,12 @@
         public int TimeLeft { get; set; }
 
         // Массив значений игрового поля.
-        // Массив игрового поля.
         private readonly char[,] arr;
+        public char this[int i, int j]
+        {
+            get => arr[i, j];
+            set => arr[i, j] = value;
+        }
 
     }
 }
