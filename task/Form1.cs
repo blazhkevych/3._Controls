@@ -68,6 +68,7 @@ namespace task
             button16.Enabled = true;
 
             // Заполняем игровое поле случайными числами от 0 до 100.
+            // вставить метод заполнения и выведения на поле из Game
             Random random = new Random();
             foreach (Control control in Controls)
                 if (control is Button && (control as Button).Text != "Новая игра")
@@ -134,6 +135,16 @@ namespace task
         //    get => _arr[i];
         //    set => _arr[i] = value;
         //}
+
+        // Конструктор класса.
+        private Game()
+        {
+            SelectedNumberIs = -1;
+            TimeLeft = -1;
+            _arr = new int[16];
+            FillArrRandomNumbers();
+        }
+        
 
         // Метод заполнения массива случайными уникальными числами и сортирует массив.
         private void FillArrRandomNumbers()
