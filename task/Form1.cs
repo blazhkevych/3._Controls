@@ -150,13 +150,13 @@ namespace task
         // Принимает Controll из формы, и каждой кнопке назначает сооветствующее число из массива.
         public void SetAllButtonsTextFromArr(Control.ControlCollection control)
         {
-            int i = 1;
+            int i = 17;
             do
             {
                 foreach (var obj in control)
                     if (obj is Button)
                         if (((Button)obj).Name =="button" + i)
-                            ((Button)obj).Text = _arr[i].ToString();
+                            ((Button)obj).Text = _arr[i].ToString(); // todo:отдельный индекс для массива
                 i--;
             } while (i>0);
         }
