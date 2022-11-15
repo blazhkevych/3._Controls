@@ -204,7 +204,7 @@
             this.button17.Location = new System.Drawing.Point(427, 421);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(115, 28);
-            this.button17.TabIndex = 16;
+            this.button17.TabIndex = 0;
             this.button17.Text = "Новая игра";
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.NewGame_button17_Click);

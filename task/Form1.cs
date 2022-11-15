@@ -37,6 +37,8 @@ namespace task
             listBox1.Enabled = false;
 
         }
+        // Секунд осталось до конца игры.
+        int left;
 
         // Обработчик кнопки "Новая игра".
         private void NewGame_button17_Click(object sender, EventArgs e)
@@ -65,16 +67,19 @@ namespace task
                 if (control is Button && (control as Button).Text != "Новая игра")
                     (control as Button).Text = random.Next(0, 101).ToString();
 
+            // Секунд осталось до конца игры.
+            left = Convert.ToInt32(GameTime_numericUpDown1.Value);
+
             // Запускаем таймер на обратный отсчет. 
             timer1.Start();
 
         }
 
+
         private void CountdownStart_timer1_Tick(object sender, EventArgs e)
         {
-            this.Text = GameTime_numericUpDown1.Value.ToString();
-            // таймер на форму.
-            Text = ;
+            Text = left + " секунд осталось ! ";
+            left -= 1;
         }
     }
 }
