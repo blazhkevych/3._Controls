@@ -68,11 +68,11 @@ namespace task
             button16.Enabled = true;
 
             // Заполняем игровое поле случайными числами от 0 до 100.
-            // вставить метод заполнения и выведения на поле из Game
-            Random random = new Random();
-            foreach (Control control in Controls)
-                if (control is Button && (control as Button).Text != "Новая игра")
-                    (control as Button).Text = random.Next(0, 101).ToString();
+            // todo:вставить метод заполнения и выведения на поле из Game
+            //Random random = new Random();
+            //foreach (Control control in Controls)
+            //    if (control is Button && (control as Button).Text != "Новая игра")
+            //        (control as Button).Text = random.Next(0, 101).ToString();
 
             // Секунд осталось до конца игры.
             _game.TimeLeft = Convert.ToInt32(GameTime_numericUpDown1.Value);
