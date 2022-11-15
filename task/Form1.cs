@@ -95,6 +95,16 @@
             //  todo:Перебрать листбокс, сравнить добавляемое...
             // а может и лучше хранить в отдельной каком-то виде массива и там операции проводить.
 
+            // Перебрать листбокс, сравнить добавляемое...
+            foreach (var v in Controls)
+            {
+                // Если не найдено совпадений, добавить в листбокс.
+                if (listBox1.Items.Contains(((Button)v).Text) == false)
+                {
+                    listBox1.Items.Add(((Button)v).Text);
+                }
+            }
+
             listBox1.Items.Add(((Button)sender).Text);
             ((Button)sender).Enabled = false;
         }
@@ -105,6 +115,10 @@
     {
         // Секунд осталось до конца игры.
         public int TimeLeft { get; set; }
+
+        // Массив значений игрового поля.
+        // Массив игрового поля.
+        private readonly char[,] arr;
 
     }
 }
