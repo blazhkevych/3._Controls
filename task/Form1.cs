@@ -91,7 +91,30 @@ namespace task
         // Нажатие на кнопку игрового поля.
         private void GameField_buttons_Click(object sender, EventArgs e)
         {
-            _game.UserNumber =Convert.ToInt32(((Button)sender).Text);
+            // Выбранное игроком число отправляем в класс Game.
+            _game.SelectedNumberIs = Convert.ToInt32(((Button)sender).Text);
+
+            // todo:Проверяем, является ли выбранное число следующим по возрастанию.
+            if(_game.IsMinNumber())
+            {
+                // Если да, то добавляем его в список.
+                listBox1.Items.Add(_game.SelectedNumberIs);
+                // Удаляем кнопку с игрового поля.
+                ((Button)sender).Enabled = false;
+            }
+            else
+            {
+                // Если нет, то выводим сообщение об ошибке.
+                MessageBox.Show("Неверный порядок чисел!");
+            }
+
+
+            // Блокируем нажатую кнопку до конца игры.
+            ((Button)sender).Enabled = false;
+
+            // Обнуляем поле с выбранным числом.
+            _game.SelectedNumberIs = 0;
+
         }
     }
 
@@ -99,7 +122,7 @@ namespace task
     internal class Game
     {
         // Выбранное пользователем число.
-        public int UserNumber { get; set; }
+        public int SelectedNumberIs { get; set; }
 
         // Секунд осталось до конца игры.
         public int TimeLeft { get; set; }
@@ -112,13 +135,13 @@ namespace task
         //    set => _arr[i] = value;
         //}
 
-        // Метод заполнения массива случайными уникальными числами.
+        // Метод заполнения массива случайными уникальными числами и сортирует массив.
         private void FillArrRandomNumbers()
         {
             Random random = new Random();
             for (var j = 0; j < 16; j++)
             {
-                _arr[j] = random.Next(0, 101);
+                _arr[j] = random.Next(1, 101);
                 for (var i = 0; i < j; i++)
                 {
                     if (_arr[i] == _arr[j])
@@ -128,16 +151,20 @@ namespace task
                     }
                 }
             }
-        }
-
-        // Метод добавляет число в листбокс, если это число является большим за наибольшее число в массиве.
-        public void Add()
-        {
-            // Сортировка массива.
             Array.Sort(_arr);
-            // 
-
         }
+
+        // Возвращает true, если выбрано минимальное число.
+        public bool IsMinNumber()
+        {
+            return SelectedNumberIs == _arr[0];
+        }
+
+
+
+
+
+
 
 
     }
