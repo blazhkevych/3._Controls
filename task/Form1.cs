@@ -138,16 +138,12 @@
         public bool CanAdd(string str)
         {
             // Отсортировать массив.
-
-
-            bool check = false;
-            for (var k = 0; k < _arr.Length; k++)
-            {
-                if (_arr.Contains(str))
-                    return false;
-                else
-                    _arr[k] = str;
-            }
+            Array.Sort(_arr);
+            // Если наибольший елемент массива меньше str то добавить в листбокс.
+            if (Convert.ToInt32(_arr[15]) < Convert.ToInt32(str))
+                return true;
+            else
+                return false;
         }
 
 
