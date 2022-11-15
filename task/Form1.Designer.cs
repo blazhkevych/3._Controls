@@ -232,7 +232,7 @@
             this.GameTime_numericUpDown1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GameTime_numericUpDown1.Location = new System.Drawing.Point(6, 22);
             this.GameTime_numericUpDown1.Name = "GameTime_numericUpDown1";
-            this.GameTime_numericUpDown1.Size = new System.Drawing.Size(49, 27);
+            this.GameTime_numericUpDown1.Size = new System.Drawing.Size(49, 23);
             this.GameTime_numericUpDown1.TabIndex = 0;
             this.GameTime_numericUpDown1.Value = new decimal(new int[] {
             30,
@@ -243,14 +243,15 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
+            this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(427, 16);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(115, 324);
+            this.listBox1.Size = new System.Drawing.Size(115, 319);
             this.listBox1.TabIndex = 19;
             // 
             // timer1
             // 
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.CountdownStart_timer1_Tick);
             // 
             // Form1
