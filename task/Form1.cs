@@ -68,6 +68,8 @@ namespace task
             button16.Enabled = true;
 
             // Заполняем игровое поле случайными числами от 0 до 100.
+            _game.SetAllButtonsTextFromArr(Controls);
+
             // todo:вставить метод заполнения и выведения на поле из Game
             //Random random = new Random();
             //foreach (Control control in Controls)
@@ -96,7 +98,7 @@ namespace task
             _game.SelectedNumberIs = Convert.ToInt32(((Button)sender).Text);
 
             // todo:Проверяем, является ли выбранное число следующим по возрастанию.
-            if(_game.IsMinNumber())
+            if (_game.IsMinNumber())
             {
                 // Если да, то добавляем его в список.
                 listBox1.Items.Add(_game.SelectedNumberIs);
@@ -137,7 +139,7 @@ namespace task
         //}
 
         // Конструктор класса.
-        private Game()
+        internal Game()
         {
             SelectedNumberIs = -1;
             TimeLeft = -1;
@@ -149,15 +151,15 @@ namespace task
         public void SetAllButtonsTextFromArr(Control.ControlCollection control)
         {
             int i = 1;
-            foreach (var obj in control)
+            do
             {
-                if ( ((Button)obj).Text == "" )
-                {
-                    
-                }   
-            }
+                foreach (var obj in control)
+                    if (((Button)obj).Name == "button" + i)
+                        ((Button)obj).Text = _arr[i].ToString();
+                i--;
+            } while (i>0);
         }
-        
+
 
 
         // Метод заполнения массива случайными уникальными числами и сортирует массив.
