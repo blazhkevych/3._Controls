@@ -77,6 +77,7 @@ namespace task
 
 
         private void CountdownStart_timer1_Tick(object sender, EventArgs e)
+
         {
             Text = left + " секунд осталось ! ";
             left -= 1;
