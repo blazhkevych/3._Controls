@@ -155,7 +155,7 @@ namespace task
             {
                 foreach (var obj in control)
                     if (obj is Button)
-                        if (((Button)obj).Name =="button" + i)
+                        if (((Button)obj).Name =="button" + i) // todo: rename all game buttons on field
                             ((Button)obj).Text = _arr[i].ToString(); // todo:отдельный индекс для массива
                 i--;
             } while (i>0);
