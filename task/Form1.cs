@@ -41,9 +41,9 @@
             button16.Enabled = false;
             listBox1.Enabled = false;
 
+            _game = new Game();
+
         }
-        // Секунд осталось до конца игры.
-        int TimeLeft;
 
         // Обработчик кнопки "Новая игра".
         private void NewGame_button17_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@
                     (control as Button).Text = random.Next(0, 101).ToString();
 
             // Секунд осталось до конца игры.
-            TimeLeft = Convert.ToInt32(GameTime_numericUpDown1.Value);
+            _game.TimeLeft = Convert.ToInt32(GameTime_numericUpDown1.Value);
 
             // Запускаем таймер на обратный отсчет. 
             timer1.Start();
@@ -83,14 +83,16 @@
         // Вывод 
         private void CountdownStart_timer1_Tick(object sender, EventArgs e)
         {
-            Text = TimeLeft + " секунд осталось ! ";
-            TimeLeft -= 1;
+            Text = _game.TimeLeft + " секунд осталось ! ";
+            _game.TimeLeft -= 1;
         }
     }
 
     // Класс реализующий логику программы.
     internal class Game
     {
+        // Секунд осталось до конца игры.
+        public int TimeLeft { get; set; }
 
     }
 }
