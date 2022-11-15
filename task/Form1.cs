@@ -1,4 +1,6 @@
-﻿namespace task
+﻿using System.Windows.Forms;
+
+namespace task
 {
     public partial class Form1 : Form
     {
@@ -89,61 +91,52 @@
         // Нажатие на кнопку игрового поля.
         private void GameField_buttons_Click(object sender, EventArgs e)
         {
-            // При нажатии на кнопку число должно добавляться в список только в том случае, 
-            // если это число является следующим по возрастанию.
-
-            //  todo:Перебрать листбокс, сравнить добавляемое...
-            // а может и лучше хранить в отдельной каком-то виде массива и там операции проводить.
-
-            // Перебрать листбокс, сравнить добавляемое...
-            foreach (var v in Controls)
-            {
-                // Если не найдено совпадений, добавить в листбокс.
-                if (listBox1.Items.Contains(((Button)v).Text) == false)
-                {
-                    listBox1.Items.Add(((Button)v).Text);
-                }
-            }
-
-            //listBox1.Items.Add(((Button)sender).Text);
-            //((Button)sender).Enabled = false;
+            _game.UserNumber =Convert.ToInt32(((Button)sender).Text);
         }
     }
 
     // Класс реализующий логику программы.
     internal class Game
     {
+        // Выбранное пользователем число.
+        public int UserNumber { get; set; }
+
         // Секунд осталось до конца игры.
         public int TimeLeft { get; set; }
 
         // Массив значений игрового поля.
-        private readonly string[] _arr;
+        private readonly int[] _arr;
         //public string this[int i, int j]
         //{
         //    get => _arr[i];
         //    set => _arr[i] = value;
         //}
 
-        // Метод заполнения массива случайными числами.
+        // Метод заполнения массива случайными уникальными числами.
         private void FillArrRandomNumbers()
         {
-            Random r = new Random();
+            Random random = new Random();
             for (var j = 0; j < 16; j++)
             {
-                _arr[j]= r.Next(0, 101).ToString();
+                _arr[j] = random.Next(0, 101);
+                for (var i = 0; i < j; i++)
+                {
+                    if (_arr[i] == _arr[j])
+                    {
+                        j--;
+                        break;
+                    }
+                }
             }
         }
 
-        // Метод возвращает true, если это число является следующим по возрастанию и его можно добавлять в ListBox.
-        public bool CanAdd(string str)
+        // Метод добавляет число в листбокс, если это число является большим за наибольшее число в массиве.
+        public void Add()
         {
-            // Отсортировать массив.
+            // Сортировка массива.
             Array.Sort(_arr);
-            // Если наибольший елемент массива меньше str то добавить в листбокс.
-            if (Convert.ToInt32(_arr[15]) < Convert.ToInt32(str))
-                return true;
-            else
-                return false;
+            // 
+
         }
 
 
