@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace task
+﻿namespace task
 {
     public partial class Form1 : Form
     {
@@ -119,47 +117,27 @@ namespace task
         public int TimeLeft { get; set; }
 
         // Массив значений игрового поля.
-        private readonly List<string> _arr;
+        private readonly int[] arr;
 
         // Метод заполнения массива случайными числами.
         private void FillArrRandomInt()
         {
             Random r = new Random();
-            bool isEauals = false;
-
-            for (int i = 0; i < 10; i++)
+            foreach (var i in arr)
             {
-                string str = r.Next(0, 101).ToString();
-                if (_arr.Contains(str)
-
-            }
-
-
-
-            _arr.Contains()
-            foreach (var i in _arr)
-            {
-                foreach (var j in _arr)
-                {
-                    if (!i.Equals(j))
-                    {
-                        _arr.Add(r.Next(0, 101).ToString());
-
-                    }
-                }
-
+                arr[i] = r.Next(0, 101);
             }
         }
 
-        // Метод возвращает tru, если это число является следующим по возрастанию и его можно добавлять в массив.
+        // Метод возвращает tru, если это число является следующим по возрастанию и его можно добавлять в массив .
         public bool CanAdd(string)
         {
             bool check = false;
-            foreach (var i in _arr)
+            foreach (var i in arr)
             {
                 if (expr)
                 {
-
+                    
                 }
             }
         }
