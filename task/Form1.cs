@@ -186,7 +186,8 @@ namespace task
         // Возвращает true, если выбрано минимальное число.
         public bool IsMinNumber()
         {
-            return SelectedNumberIs == _arr[0];
+            Array.
+            return _arr.Min();
         }
 
 
