@@ -117,28 +117,36 @@
         public int TimeLeft { get; set; }
 
         // Массив значений игрового поля.
-        private readonly int[] arr;
+        private readonly string[] _arr;
+        //public string this[int i, int j]
+        //{
+        //    get => _arr[i];
+        //    set => _arr[i] = value;
+        //}
 
         // Метод заполнения массива случайными числами.
-        private void FillArrRandomInt()
+        private void FillArrRandomNumbers()
         {
             Random r = new Random();
-            foreach (var i in arr)
+            for (var j = 0; j < 16; j++)
             {
-                arr[i] = r.Next(0, 101);
+                _arr[j]= r.Next(0, 101).ToString();
             }
         }
 
-        // Метод возвращает tru, если это число является следующим по возрастанию и его можно добавлять в массив .
-        public bool CanAdd(string)
+        // Метод возвращает true, если это число является следующим по возрастанию и его можно добавлять в ListBox.
+        public bool CanAdd(string str)
         {
+            // Отсортировать массив.
+
+
             bool check = false;
-            foreach (var i in arr)
+            for (var k = 0; k < _arr.Length; k++)
             {
-                if (expr)
-                {
-                    
-                }
+                if (_arr.Contains(str))
+                    return false;
+                else
+                    _arr[k] = str;
             }
         }
 
