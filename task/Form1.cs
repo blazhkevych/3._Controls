@@ -63,6 +63,16 @@ namespace task
             foreach (Control control in Controls)
                 if (control is Button && (control as Button).Text != "Новая игра")
                     (control as Button).Text = random.Next(0, 101).ToString();
+
+            // Запускаем таймер на обратный отсчет. 
+            timer1.Start();
+
+
+        }
+
+        private void CountdownStart_timer1_Tick(object sender, EventArgs e)
+        {
+            this.Text = GameTime_numericUpDown1.Value.ToString();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -47,10 +48,11 @@
             this.button17 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.GameTime_numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameTime_numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -216,7 +218,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.GameTime_numericUpDown1);
             this.groupBox1.Location = new System.Drawing.Point(427, 353);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(114, 62);
@@ -224,21 +226,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Время игры";
             // 
-            // numericUpDown1
+            // GameTime_numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(6, 22);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(49, 23);
-            this.numericUpDown1.TabIndex = 0;
+            this.GameTime_numericUpDown1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GameTime_numericUpDown1.Location = new System.Drawing.Point(6, 22);
+            this.GameTime_numericUpDown1.Name = "GameTime_numericUpDown1";
+            this.GameTime_numericUpDown1.Size = new System.Drawing.Size(49, 27);
+            this.GameTime_numericUpDown1.TabIndex = 0;
+            this.GameTime_numericUpDown1.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
+            this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(427, 16);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(115, 334);
+            this.listBox1.Size = new System.Drawing.Size(115, 324);
             this.listBox1.TabIndex = 19;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.CountdownStart_timer1_Tick);
             // 
             // Form1
             // 
@@ -269,7 +281,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Почти пятнашки !";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameTime_numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -295,7 +307,8 @@
         private Button button17;
         private ProgressBar progressBar1;
         private GroupBox groupBox1;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown GameTime_numericUpDown1;
         private ListBox listBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
