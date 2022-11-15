@@ -89,7 +89,8 @@
         // Нажатие на кнопку игрового поля.
         private void button1_Click(object sender, EventArgs e)
         {
-
+            listBox1.Items.Add(((Button)sender).Text);
+            ((Button)sender).
         }
     }
 
