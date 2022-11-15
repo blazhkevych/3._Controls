@@ -25,22 +25,22 @@ namespace task
 
             // Перед игрой отключаем поле с кнопками.
             // Будет включено только после нажатия кнопки "Начать игру".
-            button1.Enabled = false;
-            button2.Enabled = false;
-            button3.Enabled = false;
-            button4.Enabled = false;
-            button5.Enabled = false;
-            button6.Enabled = false;
-            button7.Enabled = false;
-            button8.Enabled = false;
-            button9.Enabled = false;
-            button10.Enabled = false;
-            button11.Enabled = false;
-            button12.Enabled = false;
-            button13.Enabled = false;
-            button14.Enabled = false;
-            button15.Enabled = false;
-            button16.Enabled = false;
+            gameField_button1.Enabled = false;
+            gameField_button2.Enabled = false;
+            gameField_button3.Enabled = false;
+            gameField_button4.Enabled = false;
+            gameField_button5.Enabled = false;
+            gameField_button6.Enabled = false;
+            gameField_button7.Enabled = false;
+            gameField_button8.Enabled = false;
+            gameField_button9.Enabled = false;
+            gameField_button10.Enabled = false;
+            gameField_button11.Enabled = false;
+            gameField_button12.Enabled = false;
+            gameField_button13.Enabled = false;
+            gameField_button14.Enabled = false;
+            gameField_button15.Enabled = false;
+            gameField_button16.Enabled = false;
             listBox1.Enabled = false;
 
             _game = new Game();
@@ -50,22 +50,22 @@ namespace task
         private void NewGame_button17_Click(object sender, EventArgs e)
         {
             // Включаем игровое поле.
-            button1.Enabled = true;
-            button2.Enabled = true;
-            button3.Enabled = true;
-            button4.Enabled = true;
-            button5.Enabled = true;
-            button6.Enabled = true;
-            button7.Enabled = true;
-            button8.Enabled = true;
-            button9.Enabled = true;
-            button10.Enabled = true;
-            button11.Enabled = true;
-            button12.Enabled = true;
-            button13.Enabled = true;
-            button14.Enabled = true;
-            button15.Enabled = true;
-            button16.Enabled = true;
+            gameField_button1.Enabled = true;
+            gameField_button2.Enabled = true;
+            gameField_button3.Enabled = true;
+            gameField_button4.Enabled = true;
+            gameField_button5.Enabled = true;
+            gameField_button6.Enabled = true;
+            gameField_button7.Enabled = true;
+            gameField_button8.Enabled = true;
+            gameField_button9.Enabled = true;
+            gameField_button10.Enabled = true;
+            gameField_button11.Enabled = true;
+            gameField_button12.Enabled = true;
+            gameField_button13.Enabled = true;
+            gameField_button14.Enabled = true;
+            gameField_button15.Enabled = true;
+            gameField_button16.Enabled = true;
 
             // Заполняем игровое поле случайными числами от 0 до 100.
             _game.SetAllButtonsTextFromArr(Controls);
