@@ -151,13 +151,15 @@ namespace task
         public void SetAllButtonsTextFromArr(Control.ControlCollection control)
         {
             int i = 16;
+            int arrIndex = 15;
             do
             {
                 foreach (var obj in control)
                     if (obj is Button && ((Button)obj).Name =="gameField_button" + i)
-                        ((Button)obj).Text = _arr[i].ToString(); // todo:отдельный индекс для массива
+                        ((Button)obj).Text = _arr[arrIndex].ToString(); // todo:отдельный индекс для массива
                 i--;
-            } while (i>0);
+                arrIndex--;
+            } while (i>0 && arrIndex >-1);
         }
 
 
