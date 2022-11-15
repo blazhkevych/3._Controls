@@ -12,6 +12,9 @@
         /// на кнопку число должно добавляться в список только в том случае, 
         /// если это число является следующим по возрастанию
         /// </summary>
+        
+        // Ссылка на класс реализующий логику игры.
+        
         public Form1()
         {
             InitializeComponent();
@@ -75,11 +78,18 @@
 
         }
 
-
+        // Вывод 
         private void CountdownStart_timer1_Tick(object sender, EventArgs e)
         {
             Text = TimeLeft + " секунд осталось ! ";
             TimeLeft -= 1;
         }
     }
+
+    // Класс реализующий логику программы.
+    internal class Game
+    {
+
+    }
+
 }
