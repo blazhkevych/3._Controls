@@ -91,7 +91,7 @@ namespace task
             _game.SelectedNumberIs = Convert.ToInt32(((Button)sender).Text);
 
             // todo:Проверяем, является ли выбранное число следующим по возрастанию.
-            if (_game.IsMinNumber(Controls))
+            if (_game.IsMinNumber(sender))
             {
                 // Если да, то добавляем его в список.
                 listBox1.Items.Add(_game.SelectedNumberIs);
@@ -148,11 +148,11 @@ namespace task
             do
             {
                 foreach (var obj in control)
-                    if (obj is Button && ((Button)obj).Name =="gameField_button" + i)
-                        ((Button)obj).Text = _arr[arrIndex].ToString(); // todo:отдельный индекс для массива
+                    if (obj is Button && ((Button)obj).Name == "gameField_button" + i)
+                        ((Button)obj).Text = _arr[arrIndex].ToString();
                 i--;
                 arrIndex--;
-            } while (i>0 && arrIndex >-1);
+            } while (i > 0 && arrIndex > -1);
         }
 
 
@@ -177,9 +177,20 @@ namespace task
         }
 
         // Возвращает true, если выбрано минимальное число.
-        public bool IsMinNumber(Control.ControlCollection control)
+        public bool IsMinNumber(object sender)
         {
-            int min = _arr.Min();
+            // Ищем минимальное число.
+            int min = _arr[0];
+            foreach (var v in _arr)
+            {
+                if (min < v)
+                    min = v;
+            }
+            // Сравниваем минимальное число с числом выбранным пользователем.
+            // И если они одиаковы, то возвращаем true.
+            if (min.ToString() == ((Button)sender).Text)
+                return true;
+            return false;
         }
 
 
