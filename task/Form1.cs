@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace task
 {
@@ -12,7 +13,7 @@ namespace task
         /// указанное время успеть (пока не заполнится весь индикатор) 
         /// щелкнуть по всем кнопкам в порядке возрастания чисел. При нажатии
         /// на кнопку число должно добавляться в список только в том случае, 
-        /// если это число является следующим по возрастанию
+        /// если это число является следующим по возрастанию.
         /// </summary>
 
         // Ссылка на класс реализующий логику игры.
@@ -76,13 +77,42 @@ namespace task
 
             // Запускаем таймер на обратный отсчет. 
             timer1.Start();
+
+            // Выставление верхнего предела прогресс бара.
+            progressBar1.Maximum = _game.TimeLeft;
         }
 
-        // Вывод в хедер остатка секунд на игру.
+        // Тик таймера.
         private void CountdownStart_timer1_Tick(object sender, EventArgs e)
         {
+            // Достаточно ли времени для игры.
+            if (_game.CurrPressedFields == 16)
+            {
+                // Остановка таймера.
+                timer1.Stop();
+                // Если досрочная победа.
+                _game.EarlyVictory();
+                // Сыграем еще ?.
+                _game.AskPlayMore();
+                return;
+            }
+            else if (_game.TimeLeft == 0)
+            {
+                // Остановка таймера.
+                timer1.Stop();
+                // Подводим итог по игре.
+                _game.SummarizingInfoForLosers();
+                // Сыграем еще ?.
+                _game.AskPlayMore();
+                return;
+            }
+
+            // Вывод в хедер остатка секунд на игру.
             Text = _game.TimeLeft + " секунд осталось ! ";
             _game.TimeLeft -= 1;
+
+            // Изменение прогрес бара за тик таймера.
+            progressBar1.Value += 1;
         }
 
         // Нажатие на кнопку игрового поля.
@@ -96,6 +126,8 @@ namespace task
             {
                 // Если да, то добавляем его в список.
                 listBox1.Items.Add(_game.SelectedNumberIs);
+                // Подсчет кол-ва добавленных кнопок.
+                _game.CurrPressedFields++;
                 // Блокируем нажатую кнопку до конца игры.
                 ((Button)sender).Enabled = false;
                 // Удаляем кнопку из _game.arr.
@@ -107,18 +139,17 @@ namespace task
                 return;
             }
 
-
-            //((Button)sender).Enabled = false;
-
             // Обнуляем поле с выбранным числом.
             _game.SelectedNumberIs = 999;
-
         }
     }
 
     // Класс реализующий логику программы.
     internal class Game
     {
+        // Текущее количество уже нажатых полей.
+        public int CurrPressedFields { get; set; }
+
         // Выбранное пользователем число.
         public int SelectedNumberIs { get; set; }
 
@@ -127,15 +158,11 @@ namespace task
 
         // Массив значений игрового поля.
         private readonly int[] _arr;
-        //public string this[int i, int j]
-        //{
-        //    get => _arr[i];
-        //    set => _arr[i] = value;
-        //}
 
         // Конструктор класса.
         internal Game()
         {
+            CurrPressedFields = 0;
             SelectedNumberIs = -1;
             TimeLeft = -1;
             _arr = new int[16];
@@ -163,7 +190,7 @@ namespace task
             Random random = new Random();
             for (var j = 0; j < 16; j++)
             {
-                _arr[j] = random.Next(1, 101);
+                _arr[j] = random.Next(0, 101);
                 for (var i = 0; i < j; i++)
                 {
                     if (_arr[i] == _arr[j])
@@ -173,7 +200,6 @@ namespace task
                     }
                 }
             }
-            //Array.Sort(_arr);
         }
 
         // Возвращает true, если пользователем выбрано минимальное число.
@@ -202,12 +228,35 @@ namespace task
             return false;
         }
 
+        // Сыграем еще ?.
+        public void AskPlayMore()
+        {
+            var result = MessageBox.Show("Сыграем еще ?", "Почти пятнашки !", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+                Application.Exit();
+            else if (result == DialogResult.Yes)
+                Application.Restart();
+        }
 
+        // Подведение итогов.
+        public void SummarizingInfoForLosers()
+        {
+            int wasPressed = 0;
+            foreach (var i in _arr)
+            {
+                if (i == 999)
+                    wasPressed++;
+            }
+            MessageBox.Show("Вы не успели нажать " + (16 - wasPressed) + " кнопок.", "Почти пятнашки !", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
 
-
-
-
-
-
+        // Ай, молодец ! Вы справились за **** секунд.
+        public void EarlyVictory()
+        {
+            MessageBox.Show("Ай, молодец ! Вы справились раньше и у вас еще осталось " + TimeLeft + " секунд.", "Почти пятнашки !", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+        }
     }
 }
