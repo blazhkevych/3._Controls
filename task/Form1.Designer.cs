@@ -73,6 +73,7 @@
             this.gameField_button2.Size = new System.Drawing.Size(100, 100);
             this.gameField_button2.TabIndex = 1;
             this.gameField_button2.UseVisualStyleBackColor = true;
+            this.gameField_button2.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button3
             // 
@@ -82,6 +83,7 @@
             this.gameField_button3.Size = new System.Drawing.Size(100, 100);
             this.gameField_button3.TabIndex = 2;
             this.gameField_button3.UseVisualStyleBackColor = true;
+            this.gameField_button3.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button4
             // 
@@ -91,6 +93,7 @@
             this.gameField_button4.Size = new System.Drawing.Size(100, 100);
             this.gameField_button4.TabIndex = 3;
             this.gameField_button4.UseVisualStyleBackColor = true;
+            this.gameField_button4.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button5
             // 
@@ -100,6 +103,7 @@
             this.gameField_button5.Size = new System.Drawing.Size(100, 100);
             this.gameField_button5.TabIndex = 7;
             this.gameField_button5.UseVisualStyleBackColor = true;
+            this.gameField_button5.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button6
             // 
@@ -109,6 +113,7 @@
             this.gameField_button6.Size = new System.Drawing.Size(100, 100);
             this.gameField_button6.TabIndex = 6;
             this.gameField_button6.UseVisualStyleBackColor = true;
+            this.gameField_button6.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button7
             // 
@@ -118,6 +123,7 @@
             this.gameField_button7.Size = new System.Drawing.Size(100, 100);
             this.gameField_button7.TabIndex = 5;
             this.gameField_button7.UseVisualStyleBackColor = true;
+            this.gameField_button7.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button8
             // 
@@ -127,6 +133,7 @@
             this.gameField_button8.Size = new System.Drawing.Size(100, 100);
             this.gameField_button8.TabIndex = 4;
             this.gameField_button8.UseVisualStyleBackColor = true;
+            this.gameField_button8.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button9
             // 
@@ -136,6 +143,7 @@
             this.gameField_button9.Size = new System.Drawing.Size(100, 100);
             this.gameField_button9.TabIndex = 11;
             this.gameField_button9.UseVisualStyleBackColor = true;
+            this.gameField_button9.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button10
             // 
@@ -145,6 +153,7 @@
             this.gameField_button10.Size = new System.Drawing.Size(100, 100);
             this.gameField_button10.TabIndex = 10;
             this.gameField_button10.UseVisualStyleBackColor = true;
+            this.gameField_button10.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button11
             // 
@@ -154,6 +163,7 @@
             this.gameField_button11.Size = new System.Drawing.Size(100, 100);
             this.gameField_button11.TabIndex = 9;
             this.gameField_button11.UseVisualStyleBackColor = true;
+            this.gameField_button11.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button12
             // 
@@ -163,6 +173,7 @@
             this.gameField_button12.Size = new System.Drawing.Size(100, 100);
             this.gameField_button12.TabIndex = 8;
             this.gameField_button12.UseVisualStyleBackColor = true;
+            this.gameField_button12.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button13
             // 
@@ -172,6 +183,7 @@
             this.gameField_button13.Size = new System.Drawing.Size(100, 100);
             this.gameField_button13.TabIndex = 15;
             this.gameField_button13.UseVisualStyleBackColor = true;
+            this.gameField_button13.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button14
             // 
@@ -181,6 +193,7 @@
             this.gameField_button14.Size = new System.Drawing.Size(100, 100);
             this.gameField_button14.TabIndex = 14;
             this.gameField_button14.UseVisualStyleBackColor = true;
+            this.gameField_button14.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button15
             // 
@@ -190,6 +203,7 @@
             this.gameField_button15.Size = new System.Drawing.Size(100, 100);
             this.gameField_button15.TabIndex = 13;
             this.gameField_button15.UseVisualStyleBackColor = true;
+            this.gameField_button15.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // gameField_button16
             // 
@@ -199,6 +213,7 @@
             this.gameField_button16.Size = new System.Drawing.Size(100, 100);
             this.gameField_button16.TabIndex = 12;
             this.gameField_button16.UseVisualStyleBackColor = true;
+            this.gameField_button16.Click += new System.EventHandler(this.GameField_buttons_Click);
             // 
             // button17
             // 
@@ -233,7 +248,7 @@
             this.GameTime_numericUpDown1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GameTime_numericUpDown1.Location = new System.Drawing.Point(6, 22);
             this.GameTime_numericUpDown1.Name = "GameTime_numericUpDown1";
-            this.GameTime_numericUpDown1.Size = new System.Drawing.Size(49, 23);
+            this.GameTime_numericUpDown1.Size = new System.Drawing.Size(49, 27);
             this.GameTime_numericUpDown1.TabIndex = 0;
             this.GameTime_numericUpDown1.Value = new decimal(new int[] {
             30,
@@ -244,10 +259,10 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
+            this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(427, 16);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(115, 319);
+            this.listBox1.Size = new System.Drawing.Size(115, 304);
             this.listBox1.TabIndex = 19;
             // 
             // timer1

@@ -91,25 +91,26 @@ namespace task
             _game.SelectedNumberIs = Convert.ToInt32(((Button)sender).Text);
 
             // todo:Проверяем, является ли выбранное число следующим по возрастанию.
-            if (_game.IsMinNumber(sender))
+            if (_game.IsMinNumber())
             {
                 // Если да, то добавляем его в список.
                 listBox1.Items.Add(_game.SelectedNumberIs);
-                // Удаляем кнопку с игрового поля.
+                // Блокируем нажатую кнопку до конца игры.
                 ((Button)sender).Enabled = false;
+                // Удаляем кнопку из _game.arr.
+
             }
             else
             {
-                // Если нет, то выводим сообщение об ошибке.
-                MessageBox.Show("Неверный порядок чисел!");
+                // Если нет, то игнорируем.
+                return;
             }
 
 
-            // Блокируем нажатую кнопку до конца игры.
-            ((Button)sender).Enabled = false;
+            //((Button)sender).Enabled = false;
 
             // Обнуляем поле с выбранным числом.
-            _game.SelectedNumberIs = 0;
+            _game.SelectedNumberIs = 999;
 
         }
     }
@@ -155,9 +156,7 @@ namespace task
             } while (i > 0 && arrIndex > -1);
         }
 
-
-
-        // Метод заполнения массива случайными уникальными числами и сортирует массив.
+        // Метод заполнения массива случайными уникальными числами.// и сортирует массив.
         private void FillArrRandomNumbers()
         {
             Random random = new Random();
@@ -173,23 +172,31 @@ namespace task
                     }
                 }
             }
-            Array.Sort(_arr);
+            //Array.Sort(_arr);
         }
 
-        // Возвращает true, если выбрано минимальное число.
-        public bool IsMinNumber(object sender)
+        // Возвращает true, если пользователем выбрано минимальное число.
+        public bool IsMinNumber()
         {
             // Ищем минимальное число.
             int min = _arr[0];
-            foreach (var v in _arr)
+            int minPos = -1;
+            for (var i = 0; i < _arr.Length; i++)
             {
-                if (min < v)
-                    min = v;
+                if (_arr[i] < min)
+                {
+                    min = _arr[i];
+                    minPos = i;
+                }
             }
+
             // Сравниваем минимальное число с числом выбранным пользователем.
             // И если они одиаковы, то возвращаем true.
-            if (min.ToString() == ((Button)sender).Text)
+            if (min.ToString() == SelectedNumberIs.ToString())
+            {
+                _arr[minPos] = 999;
                 return true;
+            }
             return false;
         }
 
