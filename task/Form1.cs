@@ -66,6 +66,7 @@ namespace task
             gameField_button14.Enabled = true;
             gameField_button15.Enabled = true;
             gameField_button16.Enabled = true;
+            listBox1.Enabled = true;
 
             // Заполняет кнопки на игровом поле случайными числами от 0 до 100 и выставляет их в текст.
             _game.SetAllButtonsTextFromArr(Controls);
@@ -180,13 +181,13 @@ namespace task
         {
             // Ищем минимальное число.
             int min = _arr[0];
-            int minPos = -1;
+            int posOfMin = 0;
             for (var i = 0; i < _arr.Length; i++)
             {
                 if (_arr[i] < min)
                 {
                     min = _arr[i];
-                    minPos = i;
+                    posOfMin = i;
                 }
             }
 
@@ -194,7 +195,8 @@ namespace task
             // И если они одиаковы, то возвращаем true.
             if (min.ToString() == SelectedNumberIs.ToString())
             {
-                _arr[minPos] = 999;
+                // Замена использованного числа на число больше за верхнюю границу в игре.
+                _arr[posOfMin] = 999;
                 return true;
             }
             return false;
